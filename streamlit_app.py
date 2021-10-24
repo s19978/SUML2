@@ -10,8 +10,8 @@ st.header('Translator EN - DE')
 
 st.text('Aplikacja pozwala na translację języka angielskiego na niemiecki')
 st.text('używając wytrenowanego modelu uczenia maszynowego T5.')
-st.text()
-st.text()
+st.text('')
+st.text('')
 
 import streamlit as st
 from transformers import pipeline
