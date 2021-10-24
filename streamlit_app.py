@@ -75,7 +75,7 @@ elif option == "Translacja EN - DE":
     if en_text:
         model = TFAutoModelWithLMHead.from_pretrained("t5-base")
         tokenizer = AutoTokenizer.from_pretrained("t5-base")
-        inputs = tokenizer.encode("translate English to German: {}".format(en_text), return_tensors="tf")
+        inputs = tokenizer.encode(en_text, return_tensors="tf")
         outputs = model.generate(inputs, max_length=40, num_beams=4, early_stopping=True)
         st.write(outputs)
 
