@@ -8,8 +8,8 @@ st.title('Zajęcia 1. Streamlit')
 
 st.header('Translator EN - DE')
 
-st.text('Aplikacja pozwala na translację języka angielskiego na niemiecki')
-st.text('używając wytrenowanego modelu uczenia maszynowego T5.')
+st.text('Aplikacja pozwala na translację języka angielskiego na niemiecki.')
+st.text('Używa do tego wytrenowanego modelu uczenia maszynowego T5.')
 st.text('')
 st.text('')
 
