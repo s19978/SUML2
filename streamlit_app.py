@@ -27,8 +27,11 @@ if option == "Translacja EN - DE":
     en_text = st.text_area(label="Wpisz tekst")
     if en_text:
         translator = pipeline("translation_en_to_de")
-        de_text = translator(en_text, max_length=40)
-        st.success('Świetnie! Udało się przetłumaczyć tekst')
-        st.write(de_text)
+        try:
+            de_text = translator(en_text, max_length=40)
+            st.success('Świetnie! Udało się przetłumaczyć tekst')
+            st.write(de_text)
+        catch Exception:
+            st.error('Ups. Cos poszło nie tak...')
 
 st.subheader('s19978')
