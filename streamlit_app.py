@@ -25,7 +25,7 @@ if option == "Translacja EN - DE":
     if en_text:
         translator = pipeline("translation_en_to_de")
         de_text = translator(en_text, max_length=40)
-        st.success('Gratulacje! Z powodzeniem uruchomiłeś aplikację')
+        st.success('Świetnie! Udało się przetłumaczyć tekst')
         st.write(de_text)
 
 st.subheader('s19978')
