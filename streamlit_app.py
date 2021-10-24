@@ -31,7 +31,7 @@ if option == "Translacja EN - DE":
             de_text = translator(en_text, max_length=40)
             st.success('Świetnie! Udało się przetłumaczyć tekst')
             st.write(de_text)
-        catch Exception:
+        except:
             st.error('Ups. Cos poszło nie tak...')
 
 st.subheader('s19978')
