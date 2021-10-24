@@ -72,10 +72,10 @@ if option == "Wydźwięk emocjonalny tekstu (eng)":
         st.write(answer)
 elif option == "Translacja EN - DE":
     en_text = st.text_area(label="Wpisz tekst")
-    if text:
+    if en_text:
         translator = pipeline("translation_en_to_de")
         de_text = translator(en_text)
-        st.write(answer)
+        st.write(de_text)
 
 st.subheader('Zadanie do wykonania')
 st.write('Wykorzystaj Huggin Face do stworzenia swojej własnej aplikacji tłumaczącej tekst z języka angielskiego na język niemiecki. Zmodyfikuj powyższy kod dodając do niego kolejną opcję, tj. tłumaczenie tekstu. Informacje potrzebne do zmodyfikowania kodu znajdziesz na stronie Huggin Face - https://huggingface.co/transformers/usage.html')
