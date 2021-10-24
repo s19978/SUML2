@@ -54,7 +54,7 @@ st.dataframe(df)
 st.header('Przetwarzanie języka naturalnego')
 
 import streamlit as st
-from transformers import pipeline
+from transformers import pipeline, TFAutoModelWithLMHead, AutoTokenizer
 
 option = st.selectbox(
     "Opcje",
@@ -73,9 +73,11 @@ if option == "Wydźwięk emocjonalny tekstu (eng)":
 elif option == "Translacja EN - DE":
     en_text = st.text_area(label="Wpisz tekst")
     if en_text:
-        translator = pipeline("translation_en_to_de")
-        de_text = translator(en_text)
-        st.write(de_text[0]["translation_text"])
+        model = TFAutoModelWithLMHead.from_pretrained("t5-base")
+        tokenizer = AutoTokenizer.from_pretrained("t5-base")
+        inputs = tokenizer.encode("translate English to German: {}".format(en_text), return_tensors="tf")
+        outputs = model.generate(inputs, max_length=40, num_beams=4, early_stopping=True)
+        st.write(outputs)
 
 st.subheader('Zadanie do wykonania')
 st.write('Wykorzystaj Huggin Face do stworzenia swojej własnej aplikacji tłumaczącej tekst z języka angielskiego na język niemiecki. Zmodyfikuj powyższy kod dodając do niego kolejną opcję, tj. tłumaczenie tekstu. Informacje potrzebne do zmodyfikowania kodu znajdziesz na stronie Huggin Face - https://huggingface.co/transformers/usage.html')
