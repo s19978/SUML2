@@ -60,7 +60,7 @@ option = st.selectbox(
     "Opcje",
     [
         "Wydźwięk emocjonalny tekstu (eng)",
-        "???",
+        "Translacja EN - DE",
     ],
 )
 
@@ -69,6 +69,12 @@ if option == "Wydźwięk emocjonalny tekstu (eng)":
     if text:
         classifier = pipeline("sentiment-analysis")
         answer = classifier(text)
+        st.write(answer)
+elif option == "Translacja EN - DE":
+    en_text = st.text_area(label="Wpisz tekst")
+    if text:
+        translator = pipeline("translation_en_to_de")
+        de_text = translator(en_text)
         st.write(answer)
 
 st.subheader('Zadanie do wykonania')
@@ -79,3 +85,4 @@ st.write('🐞 Wpłyń na user experience, dodaj informacje o ładowaniu, sukces
 st.write('🐞 Na końcu umieść swój numer indeksu')
 st.write('🐞 Stwórz nowe repozytorium na GitHub, dodaj do niego swoją aplikację, plik z wymaganiami (requirements.txt)')
 st.write('🐞 Udostępnij stworzoną przez siebie aplikację (https://share.streamlit.io) a link prześlij do prowadzącego')
+
